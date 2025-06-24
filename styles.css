@@ -1,0 +1,339 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('homepgbg.png'); /* Replace with your actual image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Optional: makes the bg stay while scrolling */
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background-color: #0a4d83;
+  color: white;
+  padding: 0 20px; /* Reduced vertical padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px; /* Fixed header height */
+  overflow: hidden;
+}
+
+nav a {
+  color: rgb(255, 255, 255);
+  margin: 0 10px;
+  text-decoration: none;
+  display: inline-block; /* Make transform work */
+  transition: transform 0.3s ease, color 0.3s ease;
+  position: relative;
+  right: 30px;
+}
+
+/* Hover animation */
+nav a:hover {
+  transform: scale(1.2);
+  color: #ffffff;
+  background-color: #1387c690;
+  border-radius: 999999px;
+}
+
+/* No animation or style change on click or focus */
+nav a:active,
+nav a:focus {
+  transform: none !important;
+  color: white !important;
+  text-decoration: none !important;
+  transition: none !important;
+  outline: none;
+}
+
+main {
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.554); /* Slight white background for readability */
+  width: 80%;
+  margin: 140px auto 60px; /* Added top margin to make room for fixed header */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo-title {
+  display: flex;
+  position: relative;
+  right: 15px;
+  align-items: center;
+  gap: 10px; /* Space between logo and text */
+  height: 50px; /* Fixed height to control logo container size */
+}
+
+.logo-title strong {
+  font-size: 1.1rem; /* Make the text bigger */
+  color: #ffffff; /* Change text color to your preferred color */
+  font-family: 'Arial Black', Arial, sans-serif; /* Change font */
+  margin-left: 2px; /* Space between logo and text */
+  letter-spacing: 1px; /* Space between letters */
+  /* You can add more styles here */
+}
+
+.logo {
+  position: relative;
+  top: 3px;
+  height: 180%; /* Fill the height of .logo-title */
+  width: auto;
+  object-fit: contain;
+}
+
+.shipment-form label {
+  display: block;
+  margin-bottom: 3px; /* smaller space under label */
+  font-weight: bold;
+  font-size: 1.1rem; /* bigger label text */
+}
+
+.shipment-form input,
+.shipment-form select,
+.shipment-form textarea {
+  margin-bottom: 8px; /* less vertical space between inputs */
+  padding: 6px 8px; /* smaller height but keep horizontal padding */
+  font-size: 1.05rem; /* bigger input text */
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 32px; /* smaller height for inputs/selects */
+  line-height: 1.2;
+}
+
+.shipment-form textarea {
+  height: auto;
+  min-height: 70px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.phone-container {
+  display: flex;
+  gap: 6px; /* slightly smaller gap */
+  align-items: center;
+  max-width: 300px;
+  margin-bottom: 12px;
+}
+
+.phone-helper-text {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: -8px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.cargo-image-container {
+  margin-bottom: 12px;
+}
+
+/* File input: white background for “No file chosen” text */
+.shipment-form input[type="file"] {
+  background-color: white;
+  color: #000;
+  padding: 4px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  height: auto;
+  cursor: pointer;
+}
+
+/* Submit button spans 2 columns */
+.next-btn {
+  grid-column: span 2;
+  padding: 12px;
+  font-size: 1.1rem;
+  background-color: #0c4a6e;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px;
+}
+
+.next-btn:hover {
+  background-color: #095076;
+  transform: scale(1.05);
+}
+
+/* ===== END shipment-form update ===== */
+
+.carousel {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  overflow: visible; /* Let overflow show so side images peek */
+  position: relative;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 25px; /* space between images */
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+.carousel-track img {
+  width: 290px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+  position: relative;
+  left: 80px;
+}
+
+.carousel-track img.active {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.5));
+  z-index: 10;
+}
+
+/* Paragraph styling for better readability */
+p {
+  font-size: 1.3rem;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.contact-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.contact-card {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.contact-card h2 {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: #0a4d83;
+}
+
+.contact-card p {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #222;
+}
+
+.contact-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* FAQ Section Styling */
+main details {
+  overflow: hidden;
+  transition: max-height 0.8s ease;
+  max-height: 2.5em; /* Height of summary when closed */
+  margin-bottom: 30px; /* More space between FAQ items */
+  text-align: left; /* Align details content to the left */
+}
+
+main details[open] {
+  max-height: 300px; /* Adjust based on content length */
+}
+
+/* Optional: Add transition to summary arrow rotation */
+main details summary {
+  cursor: pointer;
+  font-weight: normal; /* Changed from none to normal */
+  font-size: 1.2rem;
+  list-style: none; /* remove default arrow */
+  position: relative;
+  padding-left: 25px;
+  text-align: left; /* Align summary text to left */
+}
+
+main details summary::marker {
+  display: none; /* Remove default arrow in some browsers */
+}
+
+main details summary::before {
+  content: "▶"; /* Right-pointing arrow */
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+  font-size: 1.2rem;
+}
+
+main details[open] summary::before {
+  transform: translateY(-50%) rotate(90deg); /* Downward arrow */
+}
+
+/* Form rows and spacing improvements for two columns */
+.shipment-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 20px;
+  align-items: start;
+}
+/* === Services Page Styles === */
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.city-block {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.city-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.city-block h2 {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+  color: #0a4d83;
+}
+
+.city-block p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #333;
+}
