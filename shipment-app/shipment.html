@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Track My Cargo</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('homepgbg.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0056b3;
+      padding: 4rem 2.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      height: 80px;
+      width: auto;
+    }
+
+    .brand-text {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navbar-links a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 1.4rem;
+      position: relative;
+      transition: color 0.2s ease-in-out;
+    }
+
+    .navbar-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: #ffffff;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease-in-out;
+    }
+
+    .navbar-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* Main tracking form */
+    main {
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 600px;
+      margin: 60px auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 12px;
+      font-size: 1rem;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #statusResult {
+      margin-top: 30px;
+      text-align: left;
+      background-color: #f8f9fa;
+      border-left: 6px solid #007bff;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .status-line {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .status-label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .status-icon {
+      margin-right: 5px;
+    }
+
+    .error {
+      color: darkred;
+    }
+
+    .success {
+      color: #155724;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Updated Navbar -->
+  <header class="navbar">
+    <div class="navbar-brand">
+      <img src="applogo.png" alt="CargoTrack Logo" class="logo">
+      <span class="brand-text">TATAK PINOY CARGO LLC</span>
+    </div>
+    <nav class="navbar-links">
+      <a href="index.html">Home</a>
+      <a href="shipment.html">Track My Cargo</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="faqs.html">FAQs</a>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <h1>Track Your Shipment</h1>
+    <p>Enter your invoice number to check the current status:</p>
+
+    <input type="text" id="invoiceInput" placeholder="Enter Invoice Number">
+    <br>
+    <button onclick="trackShipment()">Track</button>
+
+    <div id="statusResult"></div>
+  </main>
+
+  <!-- Script -->
+  <script>
+    async function trackShipment() {
+      const invoice = document.getElementById('invoiceInput').value.trim();
+      const resultBox = document.getElementById('statusResult');
+      resultBox.innerHTML = "";
+
+      if (!invoice) {
+        resultBox.innerHTML = `<div class="status-line error">⚠️ Please enter an invoice number.</div>`;
+        return;
+      }
+
+      try {
+        const res = await fetch("http://localhost/shipment-admin/api/track-shipment.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ invoiceNumber: invoice })
+        });
+
+        const data = await res.json();
+
+        if (data.success && data.shipment) {
+          const s = data.shipment;
+
+          resultBox.innerHTML = `
+            <div class="status-line"><span class="status-icon">📦</span><span class="status-label">Status:</span> ${s.status}</div>
+            <div class="status-line"><span class="status-icon">🧾</span><span class="status-label">Invoice #:</span> ${invoice}</div>
+            <div class="status-line"><span class="status-icon">🚚</span><span class="status-label">Tracking #:</span> ${s.tracking_number}</div>
+            <div class="status-line"><span class="status-icon">👤</span><span class="status-label">Shipper:</span> ${s.full_name}</div>
+            <div class="status-line"><span class="status-icon">📍</span><span class="status-label">From:</span> ${s.origin}</div>
+            <div class="status-line"><span class="status-icon">📦</span><span class="status-label">To:</span> ${s.destination}</div>
+            <div class="status-line"><span class="status-icon">📅</span><span class="status-label">Shipment Date:</span> ${s.shipment_date}</div>
+          `;
+          resultBox.classList.add("success");
+        } else {
+          resultBox.innerHTML = `<div class="status-line error">❌ No shipment found for that invoice number.</div>`;
+        }
+      } catch (error) {
+        resultBox.innerHTML = `<div class="status-line error">🚫 Error fetching status. Please try again later.</div>`;
+      }
+    }
+  </script>
+</body>
+</html>

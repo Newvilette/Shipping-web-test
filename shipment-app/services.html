@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our Services</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('homepgbg.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    /* Navbar (matched layout) */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0056b3;
+      padding: 4rem 2.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      height: 80px;
+      width: auto;
+    }
+
+    .brand-text {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navbar-links a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+font-size: 1.4rem;
+      position: relative;
+      transition: color 0.2s ease-in-out;
+    }
+
+    .navbar-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: #ffffff;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease-in-out;
+    }
+
+    .navbar-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    main {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 60px auto;
+      background: rgba(34, 34, 34, 0.339);
+      border-radius: 12px;
+    }
+
+    main h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    main p, h1 {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #ffffff;
+    }
+   
+    .services-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .city-block {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .city-block:hover {
+      transform: translateY(-4px);
+    }
+
+    .city-logo {
+      height: 60px;
+      margin-bottom: 10px;
+    }
+
+    .city-block h2 {
+      font-size: 1.25rem;
+      margin: 10px 0;
+      color: #0056b3;
+    }
+
+    .city-block p {
+      margin: 5px 0;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-brand">
+      <img src="applogo.png" alt="CargoTrack Logo" class="logo" />
+      <span class="brand-text">TATAK PINOY CARGO LLC</span>
+    </div>
+    <nav class="navbar-links">
+      <a href="index.html">Home</a>
+      <a href="shipment.html">Track My Cargo</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="faqs.html">FAQs</a>
+    </nav>
+  </header>
+
+  <!-- Page Content -->
+  <main>
+    <h1>Our Services</h1>
+    <p>We currently offer logistics, tracking, and cargo security solutions in these locations.</p>
+
+    <div class="services-container">
+      <div class="city-block">
+        <img src="citylogo.png" alt="Jersey City Logo" class="city-logo" />
+        <h2>Jersey City</h2>
+        <p>Dennis Enano - 201-428-0819</p>
+        <p>Phoy - 201-920-3110</p>
+      </div>
+
+      <div class="city-block">
+        <img src="citylogo.png" alt="South Jersey Logo" class="city-logo" />
+        <h2>South Jersey, Philadelphia</h2>
+        <p>Rey - 856-842-6373</p>
+        <p>Robert - 973-647-4062</p>
+        <p>Joel - 732-600-4716</p>
+      </div>
+
+      <div class="city-block">
+        <img src="citylogo.png" alt="Bergenfield Logo" class="city-logo" />
+        <h2>Bergenfield</h2>
+        <p>Mel - 201-250-0855</p>
+        <p>Chubby - 973-932-6804</p>
+      </div>
+
+      <div class="city-block">
+        <img src="citylogo.png" alt="New York City Logo" class="city-logo" />
+        <h2>New York City</h2>
+        <p>Val - 917-741-0309</p>
+      </div>
+
+      <div class="city-block">
+        <img src="citylogo.png" alt="Staten Island Logo" class="city-logo" />
+        <h2>Staten Island</h2>
+        <p>Al - 718-510-7226</p>
+      </div>
+
+      <div class="city-block">
+        <img src="citylogo.png" alt="Rockland Logo" class="city-logo" />
+        <h2>Rockland</h2>
+        <p>Manny - 845-598-2047</p>
+      </div>
+
+      <div class="city-block">
+        <img src="citylogo.png" alt="MD/VA/DC Logo" class="city-logo" />
+        <h2>Maryland, Virginia, Washington DC</h2>
+        <p>Ver - 443-608-0310</p>
+        <p>Rey - 240-413-8404</p>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

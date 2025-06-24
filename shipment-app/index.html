@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Home - CargoTrack</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('homepgbg.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0056b3;
+  padding: 1.5rem 2.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  
+}
+nav a:hover {
+  transform: scale(1.2);
+  color: #ffffff;
+  background-color: #1387c690;
+  border-radius: 999999px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo {
+  height: 80px; /* You can adjust size here */
+  width: auto;
+}
+
+.brand-text {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 52px;
+  margin-right: 40px;
+  
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1.4rem;
+  position: relative;
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #ffffff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease-in-out;
+}
+
+.navbar-links a:hover::after {
+  transform: scaleX(1);
+}
+
+    main {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: 40px auto 0;
+      text-align: center;
+      background-color: #ffffffcc;
+      border-radius: 12px;
+    }
+
+    .next-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 14px 28px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-radius: 6px;
+    }
+
+    .next-btn:hover {
+      background-color: #004fa1;
+    }
+
+    .services-container {
+      margin: 3rem auto;
+      max-width: 1600px;
+      text-align: center;
+    }
+
+    .services-header {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      color: #000;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+
+    .service-grid {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 1.5rem;
+      overflow-x: auto;
+      justify-content: center;
+      padding-bottom: 1rem;
+    }
+
+    .service-card {
+      position: relative;
+      width: 380px;
+      height: 214px;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .service-card img.thumbnail {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover img.thumbnail {
+      transform: scale(1.03);
+    }
+
+    #hover-preview {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.95);
+      width: 1440px;
+      height: 810px;
+      max-width: 95vw;
+      max-height: 95vh;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+    }
+
+    #hover-preview.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ CLEAN NAVBAR -->
+<!-- Unified Navbar -->
+<header class="navbar">
+  <div class="navbar-brand">
+    <img src="applogo.png" alt="CargoTrack Logo" class="logo" />
+    <span class="brand-text">TATAK PINOY CARGO LLC</span>
+  </div>
+  <nav class="navbar-links">
+    <a href="index.html">Home</a>
+    <a href="shipment.html">Track My Cargo</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="faqs.html">FAQs</a>
+  </nav>
+</header>
+
+
+  <!-- Main -->
+  <main>
+    <h1>Welcome to Tatak Pinoy Cargo LLC!</h1>
+    <p>Fast, reliable, and secure cargo delivery—connecting you to the Philippines and beyond!</p>
+    <p>Track your shipments in real-time and trust us to get it there on time, every time!</p>
+    <h2>Got Questions or Concerns?</h2>
+    <a class="next-btn" href="contact.html">Send Us a Message!</a>
+  </main>
+
+  <!-- Services -->
+  <section class="services-container">
+    <div class="services-header">The Services We Offer!</div>
+    <div class="service-grid">
+
+      <div class="service-card"
+           onmouseenter="showPreview('balikbayan.png')"
+           onmouseleave="queueHide()">
+        <img class="thumbnail" src="balikbayan.png" alt="Balikbayan Box">
+      </div>
+
+      <div class="service-card"
+           onmouseenter="showPreview('aircargo.png')"
+           onmouseleave="queueHide()">
+        <img class="thumbnail" src="aircargo.png" alt="Air Cargo">
+      </div>
+
+      <div class="service-card"
+           onmouseenter="showPreview('seacargo.png')"
+           onmouseleave="queueHide()">
+        <img class="thumbnail" src="seacargo.png" alt="Relocation">
+      </div>
+
+      <div class="service-card"
+           onmouseenter="showPreview('relocation.png')"
+           onmouseleave="queueHide()">
+        <img class="thumbnail" src="relocation.png" alt="Relocation">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Hover Preview Image -->
+  <img id="hover-preview" src="" alt="Preview Image">
+
+  <!-- JavaScript -->
+  <script>
+    const preview = document.getElementById('hover-preview');
+    let hideTimeout;
+    let showTimeout;
+    let currentSrc = "";
+
+    function showPreview(src) {
+      if (src === currentSrc) return;
+      clearTimeout(hideTimeout);
+      clearTimeout(showTimeout);
+
+      preview.classList.remove('show');
+
+      showTimeout = setTimeout(() => {
+        preview.src = src;
+        preview.classList.add('show');
+        currentSrc = src;
+      }, 200); // slight delay for smoother transition
+    }
+
+    function queueHide() {
+      clearTimeout(showTimeout);
+      hideTimeout = setTimeout(() => {
+        preview.classList.remove('show');
+        currentSrc = "";
+      }, 200); // delay hiding for smoother transition
+    }
+  </script>
+
+</body>
+</html>

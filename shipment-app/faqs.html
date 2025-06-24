@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FAQs - Tatak Pinoy Cargo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('homepgbg.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0056b3;
+      padding: 1.5rem 2.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav a:hover {
+  transform: scale(1.2);
+  color: #ffffff;
+  background-color: #1387c690;
+  border-radius: 999999px;
+}
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      height: 80px;
+      width: auto;
+    }
+
+    .brand-text {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .navbar-links {
+  display: flex;
+  gap: 52px;
+  margin-right: 40px;
+  
+}
+
+    .navbar-links a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+     font-size: 1.4rem;
+      position: relative;
+      transition: color 0.2s ease-in-out;
+    }
+
+    .navbar-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: #ffffff;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease-in-out;
+    }
+
+    .navbar-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* Main content */
+    main {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 40px 30px;
+      background-color: rgba(255, 255, 255, 0.96);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #0056b3;
+    }
+
+    .faq {
+      background: #f1f1f1;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: background 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .faq:hover {
+      background: #e8f0ff;
+    }
+
+    .faq-question {
+      font-weight: bold;
+      font-size: 1.05rem;
+      padding: 1rem;
+      color: #222;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1rem;
+      font-size: 1rem;
+      color: #444;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+
+    .faq:hover .faq-answer {
+      max-height: 300px;
+      padding: 0 1rem 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-brand">
+      <img src="applogo.png" alt="CargoTrack Logo" class="logo">
+      <span class="brand-text">TATAK PINOY CARGO LLC</span>
+    </div>
+    <nav class="navbar-links">
+      <a href="index.html">Home</a>
+      <a href="shipment.html">Track My Cargo</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="faqs.html">FAQs</a>
+    </nav>
+  </header>
+
+  <!-- FAQ Content -->
+  <main>
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq">
+      <div class="faq-question">1. What services does Tatak Pinoy Cargo LLC offer?</div>
+      <div class="faq-answer">We provide international and domestic cargo shipping, balikbayan box delivery, door-to-door services, and shipment tracking.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">2. Where are your drop-off locations?</div>
+      <div class="faq-answer">We have drop-off and warehouse locations in New Jersey, New York, and more. Visit our Contact Us page for full details.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">3. How can I track my shipment?</div>
+      <div class="faq-answer">Go to the Track My Cargo page and enter your tracking number to see your shipment's status.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">4. How long does it take for a shipment to arrive in the Philippines?</div>
+      <div class="faq-answer">On average, shipments take 4–6 weeks depending on the destination and shipping method.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">5. Do you provide boxes for packing cargo?</div>
+      <div class="faq-answer">Yes, we offer balikbayan boxes in various sizes. Contact us to request a box or ask your local coordinator.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">6. Can I schedule a pickup for my cargo?</div>
+      <div class="faq-answer">Yes. Call your area coordinator listed on the Services or Contact page to set up a pickup time.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">7. Is my cargo insured during transit?</div>
+      <div class="faq-answer">Basic cargo insurance is included. For high-value items, ask us about additional coverage options.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">8. What items are not allowed in the balikbayan box?</div>
+      <div class="faq-answer">Prohibited items include firearms, explosives, flammable items, perishables, and counterfeit products.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">9. How do I contact Tatak Pinoy Cargo LLC for support?</div>
+      <div class="faq-answer">You can call, email, or visit us. All contact information is available on our Contact Us page.</div>
+    </div>
+  </main>
+
+</body>
+</html>
