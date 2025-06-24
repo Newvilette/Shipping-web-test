@@ -33,10 +33,13 @@
     }
 
     .navbar-brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+
 
     .logo {
       height: 80px;
@@ -121,10 +124,11 @@
 
   <!-- Consistent Navbar -->
   <header class="navbar">
-    <div class="navbar-brand">
-      <img src="applogo.png" alt="CargoTrack Logo" class="logo">
-      <span class="brand-text">TATAK PINOY CARGO LLC</span>
-    </div>
+    <a href="index.html" class="navbar-brand">
+  <img src="applogo.png" alt="CargoTrack Logo" class="logo" />
+  <span class="brand-text">KABALIKAT SEA AND AIR CARGO LLC</span>
+</a>
+
     <nav class="navbar-links">
       <a href="index.html">Home</a>
       <a href="shipment.html">Track My Cargo</a>
